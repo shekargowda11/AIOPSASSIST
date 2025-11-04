@@ -18,7 +18,7 @@ DEVICE = os.getenv('DEVICE', 'cpu')  # Default to 'cpu' if not set
 working_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(working_dir)
 
-subjects_list = ["domain", "controlm", "storage"]
+subjects_list = ["Biology", "Physics", "Chemistry"]
 
 # Helper to setup vectorstore and chat_chain
 def get_vector_db_path(chapter, subject):
@@ -45,12 +45,12 @@ def setup_chain(selected_chapter, selected_subject):
 
 
 st.set_page_config(
-    page_title="OperationsAssistAI",
-    page_icon="🟢",
+    page_title="StudyPal",
+    page_icon="🌀",
     layout="centered"
 )
 
-st.title("🔎 Operations Assist AI")
+st.title("📚 Study Pal")
 
 # Initialize the chat history and video history as session state in Streamlit
 if "chat_history" not in st.session_state:
@@ -59,7 +59,7 @@ if "video_history" not in st.session_state:
     st.session_state.video_history = []
 
 selected_subject = st.selectbox(
-    label="Select a domain from the list",
+    label="Select a Subject from class 12",
     options=subjects_list,
     index=None
 )
@@ -68,7 +68,7 @@ if selected_subject:
     chapter_list = get_chapter_list(selected_subject) + ["All Chapters"]
 
     selected_chapter = st.selectbox(
-        label=f"Select a domain from the list - {selected_subject}",
+        label=f"Select a Chapter from class 12 - {selected_subject}",
         options=chapter_list,
         index=0
     )

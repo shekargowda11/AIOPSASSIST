@@ -6,7 +6,7 @@ parent_dir = os.path.dirname(working_dir)
 
 def get_chapter_list(selected_subject):
 
-    if selected_subject == "domain":
+    if selected_subject == "Biology":
         subject_name = selected_subject.lower()
         chapters_dir = f"{parent_dir}/data/class_12/{subject_name}"
         chapters_list = os.listdir(chapters_dir)
@@ -15,5 +15,5 @@ def get_chapter_list(selected_subject):
         return chapters_list
 
 
-# chapters_list = get_chapter_list("Domain")
+# chapters_list = get_chapter_list("Biology")
 # print(chapters_list)
